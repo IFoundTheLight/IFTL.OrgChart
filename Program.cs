@@ -1,17 +1,17 @@
 ﻿using IFTL.OrgChart.Lib;
-using Microsoft.VisualBasic.FileIO;
-using System.Data;
-using System.Net;
-using System.Text;
+using IFTL.OrgChart.Lib.Models;
 
 namespace IFTL.OrgChart
 {
     internal class Program
     {
+        private const string URLADDRESS = "https://docs.google.com/spreadsheets/d/1oY7mOjyqEVhu3FlNhuaelEuwQ_Vxae6xnEcTYWFWKAE/export?format=csv";
         private static OrganizationChart oc = new OrganizationChart();
         static void Main(string[] args)
         {
-            oc.GenerateImage();
+            GenerateImageModel model = new GenerateImageModel();
+            model.Url = URLADDRESS;
+            oc.GenerateImage(model);
         }
     }
 }
